@@ -115,7 +115,7 @@
         {{ bin_dir }}/kubectl -n kubesphere-system apply -f {{ kubesphere_dir }}/common/{{ item }}
       loop:
         - "etcd.yaml"
-        - "mysql.yaml"
+        # - "mysql.yaml"
       register: import
       failed_when:
         - "import.stderr and 'is immutable after creation except resources.requests for bound claims' not in import.stderr"
