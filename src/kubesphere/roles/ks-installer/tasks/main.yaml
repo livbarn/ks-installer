@@ -12,7 +12,7 @@
   register: import
   loop:
     - kubesphere-system
-    - kubesphere-monitoring-system
+    # - kubesphere-monitoring-system
   failed_when: "import.stderr and 'AlreadyExists' not in import.stderr"
 
 
@@ -25,14 +25,14 @@
   failed_when: "import.stderr and 'AlreadyExists' not in import.stderr"
 
 
-- name: ks-monitor | Creating kube-etcd-client-certs-secret
-  command: >
-    {{ bin_dir }}/kubectl -n kubesphere-monitoring-system create secret generic kube-etcd-client-certs
-    --from-file=etcd-client-ca.crt={{ etcd_client_ca_crt }}
-    --from-file=etcd-client.crt={{ etcd_client_crt }}
-    --from-file=etcd-client.key={{ etcd_client_key }}
-  register: import
-  failed_when: "import.stderr and 'AlreadyExists' not in import.stderr"
+# - name: ks-monitor | Creating kube-etcd-client-certs-secret
+#   command: >
+#     {{ bin_dir }}/kubectl -n kubesphere-monitoring-system create secret generic kube-etcd-client-certs
+#     --from-file=etcd-client-ca.crt={{ etcd_client_ca_crt }}
+#     --from-file=etcd-client.crt={{ etcd_client_crt }}
+#     --from-file=etcd-client.key={{ etcd_client_key }}
+#   register: import
+#   failed_when: "import.stderr and 'AlreadyExists' not in import.stderr"
 
 
 - name: ks-installer | Check openldap StorageClass

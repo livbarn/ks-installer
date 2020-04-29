@@ -271,57 +271,57 @@ spec:
     name: s2ioperator
     namespace: kubesphere-devops-system
 
----
-apiVersion: autoscaling.k8s.io/v1beta2
-kind: VerticalPodAutoscaler
-metadata:
-  name: kube-state-metrics-vpa
-  namespace: kubesphere-monitoring-system
-spec:
-  targetRef:
-    apiVersion: "apps/v1"
-    kind: Deployment
-    name: kube-state-metrics
-    namespace: kubesphere-monitoring-system
+# ---
+# apiVersion: autoscaling.k8s.io/v1beta2
+# kind: VerticalPodAutoscaler
+# metadata:
+#   name: kube-state-metrics-vpa
+#   namespace: kubesphere-monitoring-system
+# spec:
+#   targetRef:
+#     apiVersion: "apps/v1"
+#     kind: Deployment
+#     name: kube-state-metrics
+#     namespace: kubesphere-monitoring-system
 
----
-apiVersion: autoscaling.k8s.io/v1beta2
-kind: VerticalPodAutoscaler
-metadata:
-  name: ks-prometheus-operator-vpa
-  namespace: kubesphere-monitoring-system
-spec:
-  targetRef:
-    apiVersion: "apps/v1"
-    kind: Deployment
-    name: prometheus-operator
-    namespace: kubesphere-monitoring-system
+# ---
+# apiVersion: autoscaling.k8s.io/v1beta2
+# kind: VerticalPodAutoscaler
+# metadata:
+#   name: ks-prometheus-operator-vpa
+#   namespace: kubesphere-monitoring-system
+# spec:
+#   targetRef:
+#     apiVersion: "apps/v1"
+#     kind: Deployment
+#     name: prometheus-operator
+#     namespace: kubesphere-monitoring-system
 
----
-apiVersion: autoscaling.k8s.io/v1beta2
-kind: VerticalPodAutoscaler
-metadata:
-  name: ks-prometheus-k8s-vpa
-  namespace: kubesphere-monitoring-system
-spec:
-  targetRef:
-    apiVersion: "apps/v1"
-    kind: StatefulSet
-    name: prometheus-k8s
-    namespace: kubesphere-monitoring-system
+# ---
+# apiVersion: autoscaling.k8s.io/v1beta2
+# kind: VerticalPodAutoscaler
+# metadata:
+#   name: ks-prometheus-k8s-vpa
+#   namespace: kubesphere-monitoring-system
+# spec:
+#   targetRef:
+#     apiVersion: "apps/v1"
+#     kind: StatefulSet
+#     name: prometheus-k8s
+#     namespace: kubesphere-monitoring-system
 
----
-apiVersion: autoscaling.k8s.io/v1beta2
-kind: VerticalPodAutoscaler
-metadata:
-  name: ks-prometheus-k8s-system-vpa
-  namespace: kubesphere-monitoring-system
-spec:
-  targetRef:
-    apiVersion: "apps/v1"
-    kind: StatefulSet
-    name: prometheus-k8s-system
-    namespace: kubesphere-monitoring-system
+# ---
+# apiVersion: autoscaling.k8s.io/v1beta2
+# kind: VerticalPodAutoscaler
+# metadata:
+#   name: ks-prometheus-k8s-system-vpa
+#   namespace: kubesphere-monitoring-system
+# spec:
+#   targetRef:
+#     apiVersion: "apps/v1"
+#     kind: StatefulSet
+#     name: prometheus-k8s-system
+#     namespace: kubesphere-monitoring-system
 
 ---
 apiVersion: autoscaling.k8s.io/v1beta2

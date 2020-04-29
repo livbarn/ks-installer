@@ -12,7 +12,6 @@
     systemNamespaces: >-
       kubesphere-system
       kubesphere-controls-system
-      kubesphere-monitoring-system
       {%- if kube_node_lease is defined and kube_node_lease.stdout != "0" %}
       kube-node-lease
       {%- endif %}
