@@ -1,18 +1,18 @@
 ---
 
-- name: Kubesphere | Check mysql PersistentVolumeClaim
-  shell: >
-    {{ bin_dir }}/kubectl get pvc -n kubesphere-system mysql-pvc -o jsonpath='{.status.capacity.storage}'
-  register: mysql_db_pvc
-  ignore_errors: True
+# - name: Kubesphere | Check mysql PersistentVolumeClaim
+#   shell: >
+#     {{ bin_dir }}/kubectl get pvc -n kubesphere-system mysql-pvc -o jsonpath='{.status.capacity.storage}'
+#   register: mysql_db_pvc
+#   ignore_errors: True
 
-- name: Kubesphere | Setting mysql db pv size
-  set_fact:
-    mysql_db_pv_size: "{{ mysql_db_pvc.stdout }}"
-  when:
-    - mysql_db_pvc.rc == 0
-    - mysql_db_pvc.stdout != ""
-  ignore_errors: True
+# - name: Kubesphere | Setting mysql db pv size
+#   set_fact:
+#     mysql_db_pv_size: "{{ mysql_db_pvc.stdout }}"
+#   when:
+#     - mysql_db_pvc.rc == 0
+#     - mysql_db_pvc.stdout != ""
+#   ignore_errors: True
 
 - name: Kubesphere | Check redis PersistentVolumeClaim
   shell: >

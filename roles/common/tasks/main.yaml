@@ -96,7 +96,7 @@
     dest: "{{ kubesphere_dir }}/common/{{ item.file }}"
   with_items:
     - { path: etcd, file: etcd.yaml }
-    - { name: mysql, file: mysql.yaml }
+    # - { name: mysql, file: mysql.yaml }
     - { path: redis, file: redis.yaml }
 
 
