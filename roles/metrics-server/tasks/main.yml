@@ -7,21 +7,21 @@
   register: metrics_server_old_check
 
 
-- name: Metrics-Server | deleting old prometheus-operator
-  shell: "{{ bin_dir }}/kubectl delete -f {{ kubesphere_dir }}/metrics-server/"
-  register: import
-  failed_when: "import.stderr and 'NotFound' not in import.stderr"
-  when: metrics_server_old_check.stat.exists
+# - name: Metrics-Server | deleting old prometheus-operator
+#   shell: "{{ bin_dir }}/kubectl delete -f {{ kubesphere_dir }}/metrics-server/"
+#   register: import
+#   failed_when: "import.stderr and 'NotFound' not in import.stderr"
+#   when: metrics_server_old_check.stat.exists
 
 
-- name: Metrics-Server | deleting old metrics-server files
-  file:
-    path: "{{ kubesphere_dir }}/{{ item }}"
-    state: absent
-  ignore_errors: True
-  loop:
-    - "metrics-server"
-  when: metrics_server_old_check
+# - name: Metrics-Server | deleting old metrics-server files
+#   file:
+#     path: "{{ kubesphere_dir }}/{{ item }}"
+#     state: absent
+#   ignore_errors: True
+#   loop:
+#     - "metrics-server"
+#   when: metrics_server_old_check
 
 
 - name: Metrics-Server | Getting metrics-server installation files
