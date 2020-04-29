@@ -19,7 +19,6 @@ openpitrix:
     cpu: 100m
     memory: 100Mi
 
-
 openpitrix_rp:
   image:
     repository: openpitrix/runtime-provider-kubernetes
@@ -38,17 +37,15 @@ openpitrix_flyway:
     tag: "flyway"
     pullPolicy: IfNotPresent
 
-
 etcd:
   svc: "etcd.kubesphere-system.svc"
   port: 2379
 
 mysql:
-  svc: "mysql.kubesphere-system.svc"
+  svc: "kubesphere.cluster-ct8xyyymi47s.us-east-1.rds.amazonaws.com"
   port: 3306
 
 attachment:
   svc: "minio.kubesphere-system.svc"
   port: 9000
   bucket: "openpitrix-attachment"
-

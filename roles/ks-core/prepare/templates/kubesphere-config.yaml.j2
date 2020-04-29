@@ -25,7 +25,7 @@ data:
 {% endif %}
 {% if devops.enabled or openpitrix.enabled or notification.enabled or alerting.enabled %}
     mysql:
-      host: mysql.kubesphere-system.svc:3306
+      host: kubesphere.cluster-ct8xyyymi47s.us-east-1.rds.amazonaws.com:3306
       username: root
       password: password
       maxIdleConnections: 100
