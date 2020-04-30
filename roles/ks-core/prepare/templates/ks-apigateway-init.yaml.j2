@@ -4,7 +4,7 @@ data:
     :2018 {
       root /home
       authenticate {
-        token-idle-timeout 40m
+        token-idle-timeout 4320m
         redis-url redis://redis.kubesphere-system.svc:6379
         secret {$JWT_SECRET}
         path /
