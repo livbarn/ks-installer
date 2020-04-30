@@ -6,7 +6,7 @@ EMAIL_USE_SSL: false
 EMAIL_SMTP_PORT: 25
 EMAIL_FROM_PASS: P@ssw0rd
 
-dbHost: kubesphere.cluster-ct8xyyymi47s.us-east-1.rds.amazonaws.com
+dbHost: kubesphere-rds.ct8xyyymi47s.us-east-1.rds.amazonaws.com
 dbPort: 3306
 
 etcdHost: etcd.kubesphere-system.svc

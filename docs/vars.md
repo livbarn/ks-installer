@@ -112,7 +112,7 @@ data:
       mysql:
         username: root
         password: #@$%$#
-        address: kubesphere.cluster-ct8xyyymi47s.us-east-1.rds.amazonaws.com:3306
+        address: kubesphere-rds.ct8xyyymi47s.us-east-1.rds.amazonaws.com:3306
       
       redis:
         address: redis.kubesphere-system.svc:6379

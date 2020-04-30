@@ -25,7 +25,7 @@ data:
 {% endif %}
 {% if devops.enabled or openpitrix.enabled or notification.enabled or alerting.enabled %}
     mysql:
-      host: kubesphere.cluster-ct8xyyymi47s.us-east-1.rds.amazonaws.com:3306
+      host: kubesphere-rds.ct8xyyymi47s.us-east-1.rds.amazonaws.com:3306
       username: root
       password: password
       maxIdleConnections: 100
@@ -65,9 +65,15 @@ data:
       repoIndexerEndpoint:       "openpitrix-repo-indexer.openpitrix-system.svc:9108"
 {% endif %}
 
-    #monitoring:
-    #  endpoint: http://prometheus-k8s.kubesphere-monitoring-system.svc:9090
-    #  secondaryEndpoint: http://prometheus-k8s-system.kubesphere-monitoring-system.svc:9090
+{% if externalconfig.dragonplusElasticsearchUrl is defined and externalconfig.dragonplusElasticsearchPort is defined %}
+    monitoring:
+      endpoint: http://{{ externalconfig.dragonplusElasticsearchUrl }}:{{ externalconfig.dragonplusElasticsearchPort }}
+      secondaryEndpoint: {{ externalconfig.dragonplusElasticsearchUrl }}:{{ externalconfig.dragonplusElasticsearchPort }}
+{% else %}
+    monitoring:
+      endpoint: http://prometheus-k8s.kubesphere-monitoring-system.svc:9090
+      secondaryEndpoint: http://prometheus-k8s-system.kubesphere-monitoring-system.svc:9090
+{% endif %}
 
 {% if logging.enabled is defined and logging.enabled == true %}
     logging:
