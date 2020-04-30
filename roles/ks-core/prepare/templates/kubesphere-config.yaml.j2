@@ -65,15 +65,9 @@ data:
       repoIndexerEndpoint:       "openpitrix-repo-indexer.openpitrix-system.svc:9108"
 {% endif %}
 
-{% if externalconfig.dragonplusElasticsearchUrl is defined and externalconfig.dragonplusElasticsearchPort is defined %}
     monitoring:
-      endpoint: http://{{ externalconfig.dragonplusElasticsearchUrl }}:{{ externalconfig.dragonplusElasticsearchPort }}
-      secondaryEndpoint: {{ externalconfig.dragonplusElasticsearchUrl }}:{{ externalconfig.dragonplusElasticsearchPort }}
-{% else %}
-    monitoring:
-      endpoint: http://prometheus-k8s.kubesphere-monitoring-system.svc:9090
-      secondaryEndpoint: http://prometheus-k8s-system.kubesphere-monitoring-system.svc:9090
-{% endif %}
+      endpoint: http://elasticsearch.dragonplus.com:80
+      secondaryEndpoint: elasticsearch.dragonplus:80
 
 {% if logging.enabled is defined and logging.enabled == true %}
     logging:
