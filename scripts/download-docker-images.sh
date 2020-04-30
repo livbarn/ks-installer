@@ -26,9 +26,9 @@ ks_images=(kubesphere/ks-console:v2.1.1                                         
    kubesphere/ks-controller-manager:v2.1.1                                       \
    kubesphere/cloud-controller-manager:v1.4.0                                    \
    kubesphere/ks-installer:v2.1.1                                                \
-   quay.azk8s.cn/kubernetes-ingress-controller/nginx-ingress-controller:0.24.1   \
+   kubesphere/nginx-ingress-controller:0.24.1   \
    mirrorgooglecontainers/defaultbackend-amd64:1.4                               \
-   gcr.azk8s.cn/google_containers/metrics-server-amd64:v0.3.1                    \
+   kubesphere/metrics-server-amd64:v0.3.1                    \
    kubesphere/configmap-reload:v0.3.0                                            \
    kubesphere/prometheus:v2.5.0                                                  \
    kubesphere/prometheus-config-reloader:v0.34.0                                 \
@@ -42,7 +42,7 @@ ks_images=(kubesphere/ks-console:v2.1.1                                         
    redis:5.0.5-alpine                                                            \
    haproxy:2.0.4                                                                 \
    alpine:3.10.4                                                                 \
-   quay.azk8s.cn/coreos/etcd:v3.2.18                                             \
+   kubesphere/etcd:v3.2.18                                             \
    mysql:8.0.11                                                                  \
    nginx:1.14-alpine                                                             \
    postgres:9.6.8                                                                \

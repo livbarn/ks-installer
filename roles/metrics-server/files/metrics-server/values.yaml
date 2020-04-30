@@ -27,7 +27,8 @@ hostNetwork:
   enabled: false
 
 image:
-  repository: gcr.io/google_containers/metrics-server-amd64
+  #repository: gcr.io/google_containers/metrics-server-amd64
+  repository: kubesphere/metrics-server-amd64
   tag: v0.3.1
   pullPolicy: IfNotPresent
 
