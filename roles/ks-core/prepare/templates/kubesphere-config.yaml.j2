@@ -51,7 +51,7 @@ data:
       istioPilotHost: http://istio-pilot.istio-system.svc:8080/version
       jaegerQueryHost: http://jaeger-query.istio-system.svc:16686
       #servicemeshPrometheusHost: http://prometheus-k8s-system.kubesphere-monitoring-system.svc:9090
-      servicemeshPrometheusHost: http://prometheus-operator-prometheus.monitoring.svc:9090
+      servicemeshPrometheusHost: http://prometheus-istio.monitoring.svc:9090
 {% endif %}
 
 {% if openpitrix.enabled is defined and openpitrix.enabled == true %}
