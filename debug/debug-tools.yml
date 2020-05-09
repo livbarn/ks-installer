@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: debug
+  labels:
+    name: debug
+---
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  labels:
+    name: debug-tools
+  name: debug-tools
+  namespace: debug
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: debug-tools
+  serviceName: debug-tools
+  template:
+    metadata:
+      labels:
+        name: debug-tools
+    spec:
+      containers:
+        - name: debug-tools
+          image: registry.cn-hangzhou.aliyuncs.com/liv/abtest:v3
+          command:
+            - /bin/bash
+            - -c
+            - while true; do sleep 10; done
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 500m
+              memory: 512Mi
+            limits:
+              cpu: 1000m
+              memory: 2048M
+          terminationMessagePolicy: FallbackToLogsOnError
+      terminationGracePeriodSeconds: 60

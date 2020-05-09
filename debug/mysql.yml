@@ -1,0 +1,59 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: debug
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  labels:
+    app: mysql
+  namespace: debug
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0.11
+          lifecycle:
+            postStart:
+              exec:
+                command: ["sh", "-c", "rm -rf /var/lib/mysql/lost+found"]
+          args:
+            - --default-authentication-plugin=mysql_native_password
+            - --expire_logs_days=3
+            - --binlog-expire-logs-seconds=604800
+            - --max-binlog-size=1073741824
+            - --max_allowed_packet=104857600
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
+            - name: MYSQL_DATABASE
+              value: kubesphere
+            - name: MYSQL_ROOT_HOST
+              value: "%"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: debug
+spec:
+  selector:
+    app: mysql
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
