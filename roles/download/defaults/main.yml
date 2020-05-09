@@ -241,16 +241,16 @@ jenkins_uc_repo:  "{{ base_repo }}kubesphere/jenkins-uc"
 jenkins_uc_tag: v2.1.1
 jenkins_repo: "{{ base_repo }}jenkins/jenkins"
 jenkins_tag: 2.176.2
-jnlp_slave_repo: "{{ base_repo }}jenkins/jnlp-slave"
-jnlp_slave_tag: 3.27-1
+jnlp_slave_repo: "385382614844.dkr.ecr.us-east-1.amazonaws.com/jnlp"
+jnlp_slave_tag: v2.1.1
 builder_base_repo: "{{ base_repo }}kubesphere/builder-base"
 builder_base_tag: v2.1.0
-builder_nodejs_repo: "{{ base_repo }}kubesphere/builder-nodejs"
-builder_nodejs_tag: v2.1.0
+builder_nodejs_repo: "385382614844.dkr.ecr.us-east-1.amazonaws.com/slave-node"
+builder_nodejs_tag: v2.1.1
 builder_maven_repo: "{{ base_repo }}kubesphere/builder-maven"
 builder_maven_tag: v2.1.0
-builder_go_repo: "{{ base_repo }}kubesphere/builder-go"
-builder_go_tag: v2.1.0
+builder_go_repo: "385382614844.dkr.ecr.us-east-1.amazonaws.com/slave-golang"
+builder_go_tag: v2.1.1
 
 #sonarqube:
 sonarqube_repo: "{{ base_library_repo }}sonarqube"
